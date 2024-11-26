@@ -1,6 +1,3 @@
-![El Rincón de Isma](/public/assets/images/banner.jpg "La plantilla definitiva")
-# El Rincón de Isma - Plantilla Definitiva de Laravel
-Este es un proyecto basado en [Laravel](https://laravel.com/), un framework PHP para el desarrollo de aplicaciones web. A continuación se describen los pasos para la instalación y configuración inicial del proyecto.
 ## Requisitos previos
 
 Antes de instalar Laravel, asegúrate de tener los siguientes requisitos:
