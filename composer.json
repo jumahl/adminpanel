@@ -23,7 +23,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^3.0",
-        "pestphp/pest-plugin-laravel": "^3.0"
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "squizlabs/php_codesniffer": "^3.11"
     },
     "autoload": {
         "psr-4": {
@@ -53,7 +54,14 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
-        ]
+        ],
+        "test": "php artisan test",
+        "test:unit": "php artisan test --testsuite=Unit",
+        "test:feature": "php artisan test --testsuite=Feature",
+        "test:coverage": "php artisan test --coverage",
+        "test:filter": "php artisan test --filter=",
+        "test:parallel": "php artisan test --parallel",
+        "lint": "vendor/bin/phpcs --standard=phpcs.xml"
     },
     "extra": {
         "laravel": {

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +16,13 @@ class OrderDetail extends Model
         'unit_price',
     ];
 
+    protected $appends = ['subtotal'];
+
+    public function getSubtotalAttribute()
+    {
+        return $this->quantity * $this->unit_price;
+    }
+
     public function order()
     {
         return $this->belongsTo(Order::class);
@@ -23,5 +31,12 @@ class OrderDetail extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    protected static function booted()
+    {
+        static::created(function ($orderDetail) {
+            $product = $orderDetail->product;
+            $product->decrement('quantity_in_stock', $orderDetail->quantity);
+        });
     }
 }
